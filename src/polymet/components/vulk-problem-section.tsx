@@ -1,77 +1,74 @@
 import React, { useState } from "react";
 import { TrendingDownIcon, AlertCircleIcon, XIcon } from "lucide-react";
+import { ProblemContent } from "@/polymet/data/vulk-content";
 
-export function VulkProblemSection() {
+interface VulkProblemSectionProps {
+  content: ProblemContent;
+  viewMode?: "onepager" | "deck";
+}
+
+export function VulkProblemSection({ content, viewMode = "onepager" }: VulkProblemSectionProps) {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+  const isDeck = viewMode === "deck";
 
   return (
-    <section className="bg-white py-16 px-6">
+    <section className={`bg-white ${isDeck ? "py-12" : "py-16"} px-6`}>
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-[#1a1a1a] mb-8">The Problem</h2>
+        <h2 className={`text-4xl font-bold text-[#1a1a1a] ${isDeck ? "mb-6" : "mb-8"}`}>{content.title}</h2>
 
-        <p className="text-xl text-[#2a2a2a] mb-8 leading-relaxed">
-          AI + layoffs are making the white-collar job market more competitive
-          than ever. Professionals don't know how to{" "}
-          <span className="font-semibold text-[#FF5733]">stay relevant</span> or{" "}
-          <span className="font-semibold text-[#FF5733]">grow their value</span>.
+        <p className={`text-xl text-[#2a2a2a] ${isDeck ? "mb-6" : "mb-8"} leading-relaxed`}>
+          {content.descriptionHighlights.map((part, index) => (
+            <React.Fragment key={index}>
+              {part.isHighlight ? (
+                <span className="font-semibold text-[#FF5733]">{part.text}</span>
+              ) : (
+                part.text
+              )}
+            </React.Fragment>
+          ))}
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-[#FFF5F3] border-l-4 border-[#FF5733] p-6 rounded-lg">
-            <div className="flex items-start gap-3 mb-3">
-              <TrendingDownIcon className="w-6 h-6 text-[#FF5733] flex-shrink-0 mt-1" />
+        <div className={`grid md:grid-cols-3 ${isDeck ? "gap-4 mb-6" : "gap-6 mb-8"}`}>
+          {content.stats.map((stat, index) => (
+            <div key={index} className="bg-[#FFF5F3] border-l-4 border-[#FF5733] p-6 rounded-lg">
+              <div className="flex items-start gap-3 mb-3">
+                {index === 0 ? (
+                  <TrendingDownIcon className="w-6 h-6 text-[#FF5733] flex-shrink-0 mt-1" />
+                ) : (
+                  <AlertCircleIcon className="w-6 h-6 text-[#FF5733] flex-shrink-0 mt-1" />
+                )}
 
-              <div>
-                <p className="text-3xl font-bold text-[#FF5733] mb-1">208k</p>
-                <button
-                  onClick={() => setEnlargedImage("/layoff_in_tech.png")}
-                  className="text-sm text-[#FF5733] underline hover:text-[#E54623] cursor-pointer text-left font-medium"
-                >
-                  Projected layoffs YTD 2025 in tech alone
-                </button>
+                <div>
+                  <p className="text-3xl font-bold text-[#FF5733] mb-1">{stat.value}</p>
+                  {stat.imagePath ? (
+                    <button
+                      onClick={() =>
+                        setEnlargedImage(
+                          stat.imageType === "composition" ? "reddit-composition" : stat.imagePath
+                        )
+                      }
+                      className="text-sm text-[#FF5733] underline hover:text-[#E54623] cursor-pointer text-left font-medium"
+                    >
+                      {stat.label}
+                    </button>
+                  ) : (
+                    <p className="text-sm text-[#4a4a4a]">{stat.label}</p>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="bg-[#FFF5F3] border-l-4 border-[#FF5733] p-6 rounded-lg">
-            <div className="flex items-start gap-3 mb-3">
-              <AlertCircleIcon className="w-6 h-6 text-[#FF5733] flex-shrink-0 mt-1" />
-
-              <div>
-                <p className="text-3xl font-bold text-[#FF5733] mb-1">-20%</p>
-                <p className="text-sm text-[#4a4a4a]">
-                  Entry-level roles in AI-exposed fields
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#FFF5F3] border-l-4 border-[#FF5733] p-6 rounded-lg">
-            <div className="flex items-start gap-3 mb-3">
-              <AlertCircleIcon className="w-6 h-6 text-[#FF5733] flex-shrink-0 mt-1" />
-
-              <div>
-                <p className="text-3xl font-bold text-[#FF5733] mb-1">100s</p>
-                <button
-                  onClick={() => setEnlargedImage("reddit-composition")}
-                  className="text-sm text-[#FF5733] underline hover:text-[#E54623] cursor-pointer text-left font-medium"
-                >
-                  Monthly Reddit posts from desperate professionals
-                </button>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="bg-[#F5F1E8] p-6 rounded-lg">
           <img
-            src="/S&P500_VS_JOB_OPENINGS.png"
+            src={content.chartImage}
             alt="S&P 500 vs Job Openings chart"
-            className="max-w-full h-auto rounded-md shadow-lg cursor-pointer hover:opacity-90 transition-opacity mx-auto"
-            onClick={() => setEnlargedImage("/S&P500_VS_JOB_OPENINGS.png")}
+            className={`max-w-full w-auto h-auto rounded-md shadow-lg cursor-pointer hover:opacity-90 transition-opacity mx-auto object-contain ${isDeck ? "max-h-[40vh]" : ""}`}
+            onClick={() => setEnlargedImage(content.chartImage)}
           />
           <p className="text-sm text-[#6a6a6a] mt-3 italic text-center">
-            Markets (SPX) are soaring, but job openings (JTSJOL) are collapsing. People are caught in between.
+            {content.chartCaption}
           </p>
         </div>
 

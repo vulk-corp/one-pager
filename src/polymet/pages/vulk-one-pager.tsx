@@ -6,23 +6,27 @@ import { VulkMarketSection } from "@/polymet/components/vulk-market-section";
 import { VulkTeamSection } from "@/polymet/components/vulk-team-section";
 import { VulkRoadmapSection } from "@/polymet/components/vulk-roadmap-section";
 import { VulkFundraisingSection } from "@/polymet/components/vulk-fundraising-section";
+import { ViewSwitcher } from "@/polymet/components/view-switcher";
+import { vulkContent } from "@/polymet/data/vulk-content";
 
 export function VulkOnePager() {
   return (
     <div className="min-h-screen">
-      <VulkHeroSection />
+      <ViewSwitcher />
 
-      <VulkProblemSection />
+      <VulkHeroSection content={vulkContent.hero} />
 
-      <VulkSolutionSection />
+      <VulkProblemSection content={vulkContent.problem} />
 
-      <VulkMarketSection />
+      <VulkSolutionSection content={vulkContent.solution} />
 
-      <VulkTeamSection />
+      <VulkMarketSection content={vulkContent.market} />
 
-      <VulkRoadmapSection />
+      <VulkTeamSection content={vulkContent.team} />
 
-      <VulkFundraisingSection />
+      <VulkRoadmapSection content={vulkContent.roadmap} />
+
+      <VulkFundraisingSection content={vulkContent.fundraising} />
     </div>
   );
 }

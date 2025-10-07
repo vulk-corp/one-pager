@@ -1,7 +1,12 @@
 import React from "react";
 import { RocketIcon } from "lucide-react";
+import { FundraisingContent } from "@/polymet/data/vulk-content";
 
-export function VulkFundraisingSection() {
+interface VulkFundraisingSectionProps {
+  content: FundraisingContent;
+}
+
+export function VulkFundraisingSection({ content }: VulkFundraisingSectionProps) {
   return (
     <section className="bg-[#FF5733] py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
@@ -9,38 +14,44 @@ export function VulkFundraisingSection() {
           <RocketIcon className="w-8 h-8 text-[#FF5733]" />
         </div>
 
-        <h2 className="text-4xl font-bold text-white mb-6">Accelerating</h2>
+        <h2 className="text-4xl font-bold text-white mb-6">{content.title}</h2>
 
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border-2 border-white/20">
             <p className="text-white/80 text-sm font-semibold mb-2 uppercase tracking-wide">
               Raising
             </p>
-            <p className="text-6xl font-bold text-white mb-2">$400k</p>
+            <p className="text-6xl font-bold text-white mb-2">{content.raising}</p>
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border-2 border-white/20">
             <p className="text-white/80 text-sm font-semibold mb-2 uppercase tracking-wide">
               Valuation Cap
             </p>
-            <p className="text-6xl font-bold text-white mb-2">$8M</p>
+            <p className="text-6xl font-bold text-white mb-2">{content.valuationCap}</p>
           </div>
         </div>
 
         <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border-2 border-white/20">
           <p className="text-xl text-white leading-relaxed">
-            Build AI-powered career OS with proactive career agent, onboard first 1000s users, find PMF and a cost efficient acquisition channel.
+            {content.useOfFunds}
           </p>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="https://www.vulk.ai"
+            href={content.ctaUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-[#FF5733] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#F5F1E8] transition-colors"
           >
-            Learn More at vulk.ai
+            {content.ctaText}
+          </a>
+          <a
+            href={`mailto:${content.contactEmail}`}
+            className="inline-block bg-white/10 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors"
+          >
+            Contact Us
           </a>
         </div>
       </div>
