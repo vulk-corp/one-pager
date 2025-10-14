@@ -3,6 +3,7 @@ export interface VulkContent {
   problem: ProblemContent;
   solution: SolutionContent;
   market: MarketContent;
+  competition: CompetitionContent;
   team: TeamContent;
   roadmap: RoadmapContent;
   fundraising: FundraisingContent;
@@ -11,8 +12,10 @@ export interface VulkContent {
 export interface HeroContent {
   title: string;
   websiteUrl: string;
-  tagline: string;
-  highlights: string[];
+  tagline: {
+    text: string;
+    isHighlight: boolean;
+  }[];
   logoPath: string;
 }
 
@@ -66,6 +69,27 @@ export interface MarketContent {
   };
 }
 
+export interface CompetitionContent {
+  title: string;
+  subtitle: string;
+  xAxis: {
+    label: string;
+    min: string;
+    max: string;
+  };
+  yAxis: {
+    label: string;
+    min: string;
+    max: string;
+  };
+  competitors: {
+    name: string;
+    x: number; // 0-100 scale
+    y: number; // 0-100 scale
+    logoUrl?: string; // Optional logo URL
+  }[];
+}
+
 export interface TeamContent {
   title: string;
   subtitle: string;
@@ -101,8 +125,13 @@ export const vulkContent: VulkContent = {
   hero: {
     title: "vulk.ai",
     websiteUrl: "https://www.vulk.ai",
-    tagline: "Your always-on AI career agent that keeps you",
-    highlights: ["relevant", "visible", "in demand"],
+    tagline: [
+      { text: "Your always-on AI Career Agent that ", isHighlight: false },
+      { text: "protects", isHighlight: true },
+      { text: " and ", isHighlight: false },
+      { text: "grows", isHighlight: true },
+      { text: " your career", isHighlight: false },
+    ],
     logoPath: "/vulk_avatar.svg",
   },
 
@@ -131,6 +160,7 @@ export const vulkContent: VulkContent = {
       {
         value: "100s",
         label: "Monthly Reddit posts from desperate professionals",
+        imagePath: "/reddit.png",
         imageType: "composition",
       },
     ],
@@ -221,6 +251,33 @@ export const vulkContent: VulkContent = {
         },
       ],
     },
+  },
+
+  competition: {
+    title: "Competitive Landscape",
+    subtitle: "Vulk AI agent combines deep personalization with proactive execution.",
+    xAxis: {
+      label: "Level of Proactivity",
+      min: "Reactive",
+      max: "Proactive",
+    },
+    yAxis: {
+      label: "Depth of Personalization",
+      min: "Generic Advice",
+      max: "Individualized",
+    },
+    competitors: [
+      { name: "LinkedIn", x: 30, y: 20, logoUrl: "https://logo.clearbit.com/linkedin.com" },
+      { name: "Glassdoor", x: 20, y: 15, logoUrl: "https://logo.clearbit.com/glassdoor.com" },
+      { name: "Coursera", x: 25, y: 30, logoUrl: "https://logo.clearbit.com/coursera.org" },
+      { name: "TealHQ", x: 50, y: 70, logoUrl: "https://logo.clearbit.com/tealhq.com" },
+      { name: "Careerflow.ai", x: 55, y: 55, logoUrl: "https://logo.clearbit.com/careerflow.ai" },
+      { name: "BetterUp", x: 35, y: 70, logoUrl: "https://logo.clearbit.com/betterup.com" },
+      { name: "Human Coaches", x: 30, y: 90 },
+      { name: "Taplio", x: 65, y: 40, logoUrl: "https://logo.clearbit.com/taplio.com" },
+      { name: "Buffer", x: 70, y: 35, logoUrl: "https://logo.clearbit.com/buffer.com" },
+      { name: "Vulk", x: 85, y: 85, logoUrl: "/vulk_avatar.svg" },
+    ],
   },
 
   team: {

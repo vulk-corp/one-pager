@@ -29,12 +29,13 @@ export function VulkHeroSection({ content }: VulkHeroSectionProps) {
             <div className="h-1 w-24 bg-[#FF5733] mt-2"></div>
           </div>
           <p className="text-xl md:text-2xl text-[#4a4a4a] max-w-3xl leading-relaxed">
-            {content.tagline}{" "}
-            {content.highlights.map((highlight, index) => (
+            {content.tagline.map((part, index) => (
               <React.Fragment key={index}>
-                <span className="text-[#FF5733] font-semibold">{highlight}</span>
-                {index < content.highlights.length - 1 && ", "}
-                {index === content.highlights.length - 2 && "and "}
+                {part.isHighlight ? (
+                  <span className="text-[#FF5733] font-semibold">{part.text}</span>
+                ) : (
+                  part.text
+                )}
               </React.Fragment>
             ))}
           </p>

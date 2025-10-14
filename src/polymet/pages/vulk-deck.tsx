@@ -8,6 +8,7 @@ import { VulkHeroSection } from "@/polymet/components/vulk-hero-section";
 import { VulkProblemSection } from "@/polymet/components/vulk-problem-section";
 import { VulkSolutionSection } from "@/polymet/components/vulk-solution-section";
 import { VulkMarketSection } from "@/polymet/components/vulk-market-section";
+import { VulkCompetitionSection } from "@/polymet/components/vulk-competition-section";
 import { VulkTeamSection } from "@/polymet/components/vulk-team-section";
 import { VulkRoadmapSection } from "@/polymet/components/vulk-roadmap-section";
 import { VulkFundraisingSection } from "@/polymet/components/vulk-fundraising-section";
@@ -93,6 +94,14 @@ export function VulkDeck() {
         <SwiperSlide className="overflow-y-auto">
           <div className="min-h-screen flex items-center justify-center py-6">
             <div className="w-full">
+              <VulkCompetitionSection content={vulkContent.competition} />
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className="overflow-y-auto">
+          <div className="min-h-screen flex items-center justify-center py-6">
+            <div className="w-full">
               <VulkTeamSection content={vulkContent.team} />
             </div>
           </div>
@@ -118,7 +127,7 @@ export function VulkDeck() {
       {/* Slide counter */}
       {!hideUI && (
         <div className="fixed bottom-6 left-6 z-50 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-[#1a1a1a]">
-          Slide {activeIndex + 1} / 7
+          Slide {activeIndex + 1} / 8
         </div>
       )}
     </div>
