@@ -23,7 +23,7 @@ export function VulkSolutionSection({ content, viewMode = "onepager" }: VulkSolu
       <div className="max-w-6xl mx-auto">
         <h2 className={`text-4xl font-bold text-[#1a1a1a] ${isDeck ? "mb-6" : "mb-8"}`}>{content.title}</h2>
 
-        <p className={`text-xl text-[#2a2a2a] ${isDeck ? "mb-6" : "mb-8"} leading-relaxed`}>
+        <p className={`text-2xl text-[#2a2a2a] ${isDeck ? "mb-6" : "mb-8"} leading-relaxed`}>
           {content.description}{" "}
           <span className="font-semibold text-[#FF5733]">
             {content.descriptionHighlight}

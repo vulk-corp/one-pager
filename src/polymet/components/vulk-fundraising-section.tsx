@@ -38,21 +38,35 @@ export function VulkFundraisingSection({ content }: VulkFundraisingSectionProps)
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href={content.ctaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-[#FF5733] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#F5F1E8] transition-colors"
-          >
-            {content.ctaText}
-          </a>
-          <a
-            href={`mailto:${content.contactEmail}`}
-            className="inline-block bg-white/10 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors"
-          >
-            Contact Us
-          </a>
+        <div className="mt-10 flex flex-col gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href={content.ctaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white text-[#FF5733] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#F5F1E8] transition-colors"
+            >
+              {content.ctaText}
+            </a>
+            <a
+              href={`mailto:${content.contactEmail}`}
+              className="inline-block bg-white/10 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+
+          <div className="text-center mt-2">
+            <p className="text-white/90 text-sm font-semibold uppercase tracking-wider mb-1">
+              Contact CEO
+            </p>
+            <a
+              href={`mailto:${content.contactEmail}`}
+              className="text-white text-2xl font-bold hover:text-white/90 transition-colors underline decoration-white/50 hover:decoration-white"
+            >
+              {content.contactEmail}
+            </a>
+          </div>
         </div>
       </div>
     </section>

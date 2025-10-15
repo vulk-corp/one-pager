@@ -3,6 +3,7 @@ export interface VulkContent {
   problem: ProblemContent;
   solution: SolutionContent;
   market: MarketContent;
+  gtm: GTMContent;
   competition: CompetitionContent;
   team: TeamContent;
   roadmap: RoadmapContent;
@@ -69,6 +70,24 @@ export interface MarketContent {
   };
 }
 
+export interface GTMContent {
+  title: string;
+  subtitle: string;
+  targetCustomer: string;
+  channels: {
+    name: string;
+    icon: string;
+    key: string;
+  }[];
+  viralLoop: {
+    title: string;
+    steps: {
+      number: string;
+      label: string;
+    }[];
+  };
+}
+
 export interface CompetitionContent {
   title: string;
   subtitle: string;
@@ -95,6 +114,7 @@ export interface TeamContent {
   subtitle: string;
   members: {
     name: string;
+    role: string;
     imagePath: string;
     linkedinUrl: string;
     bio: string;
@@ -126,17 +146,15 @@ export const vulkContent: VulkContent = {
     title: "vulk.ai",
     websiteUrl: "https://www.vulk.ai",
     tagline: [
-      { text: "Your always-on AI Career Agent that ", isHighlight: false },
-      { text: "protects", isHighlight: true },
-      { text: " and ", isHighlight: false },
-      { text: "grows", isHighlight: true },
-      { text: " your career", isHighlight: false },
+      { text: "AI Career agent to ", isHighlight: false },
+      { text: "thrive", isHighlight: true },
+      { text: " through the AI shift", isHighlight: false },
     ],
     logoPath: "/vulk_avatar.svg",
   },
 
   problem: {
-    title: "The Problem",
+    title: "The Job Market Is Fundamentally Changing",
     description:
       "AI + layoffs are making the white-collar job market more competitive than ever. Professionals don't know how to",
     descriptionHighlights: [
@@ -170,7 +188,7 @@ export const vulkContent: VulkContent = {
   },
 
   solution: {
-    title: "The Solution",
+    title: "Your Always-On AI Career Agent",
     description: "Vulk is an",
     descriptionHighlight: "always-on AI career agent",
     features: [
@@ -213,7 +231,7 @@ export const vulkContent: VulkContent = {
   },
 
   market: {
-    title: "Market Opportunity",
+    title: "$100-200B Career Management Market",
     marketSize: {
       tam: {
         value: "$100-200B",
@@ -253,8 +271,55 @@ export const vulkContent: VulkContent = {
     },
   },
 
+  gtm: {
+    title: "Community-Led Growth Strategy",
+    subtitle: "Targeting entry to mid-senior tech professionals ($75K-$150K) in US metro areas",
+    targetCustomer: "Entry to mid-senior tech professionals seeking career visibility and growth",
+    channels: [
+      {
+        name: "Reddit",
+        icon: "message-circle",
+        key: "r/cscareerquestions (1.9M members)",
+      },
+      {
+        name: "Micro-Influencers",
+        icon: "users",
+        key: "Career coaches & LinkedIn creators",
+      },
+      {
+        name: "Product Hunt",
+        icon: "rocket",
+        key: "Launch for early adopters",
+      },
+      {
+        name: "Microsites",
+        icon: "globe",
+        key: "\"Are You Underpaid?\" salary tool",
+      },
+      {
+        name: "Cold Outreach",
+        icon: "mail",
+        key: "Personalized to target profiles",
+      },
+      {
+        name: "LinkedIn Organic",
+        icon: "linkedin",
+        key: "Founder-led content",
+      },
+    ],
+    viralLoop: {
+      title: "Viral Loop",
+      steps: [
+        { number: "1", label: "Drop LinkedIn profile" },
+        { number: "2", label: "Get immediate value" },
+        { number: "3", label: "Sign-up to see all opportunities" },
+        { number: "4", label: "Refer to get agent credits" },
+      ],
+    },
+  },
+
   competition: {
-    title: "Competitive Landscape",
+    title: "Uniquely Positioned: Proactive + Personalized",
     subtitle: "Vulk AI agent combines deep personalization with proactive execution.",
     xAxis: {
       label: "Level of Proactivity",
@@ -281,17 +346,19 @@ export const vulkContent: VulkContent = {
   },
 
   team: {
-    title: "The Team",
+    title: "Battle-Tested Founders with 10+ Years in Career Tech",
     subtitle: "Both working full-time on Vulk and releasing iterations every day.",
     members: [
       {
-        name: "Emmanuel",
+        name: "Emmanuel Marboeuf",
+        role: "Co-Founder & CEO",
         imagePath: "/pic_manu.png",
         linkedinUrl: "https://www.linkedin.com/in/emmanuelmarboeuf/",
         bio: "Co-founded Visage.jobs (up to 8M ARR), 10 years building AI recruiting products.",
       },
       {
-        name: "Dorian",
+        name: "Dorian Ouvrard",
+        role: "Co-Founder & CTO",
         imagePath: "/pic_dorian.png",
         linkedinUrl: "https://www.linkedin.com/in/dorian-ouvrard/",
         bio: "GenAI lead developer and key speaker at GenAI events, ex-enterprise LLM evangelist.",
@@ -300,7 +367,7 @@ export const vulkContent: VulkContent = {
   },
 
   roadmap: {
-    title: "Roadmap",
+    title: "Path to Product-Market Fit",
     phases: [
       {
         title: "Phase 1 - Foundation",
@@ -327,7 +394,7 @@ export const vulkContent: VulkContent = {
   },
 
   fundraising: {
-    title: "Accelerating",
+    title: "Join Our $400K Seed Round",
     raising: "$400k",
     valuationCap: "$8M",
     useOfFunds:

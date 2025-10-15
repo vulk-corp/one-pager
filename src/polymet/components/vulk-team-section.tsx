@@ -26,7 +26,7 @@ export function VulkTeamSection({ content }: VulkTeamSectionProps) {
                   />
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1">
                     <h3 className="text-2xl font-bold text-[#1a1a1a]">
                       {member.name}
                     </h3>
@@ -39,6 +39,9 @@ export function VulkTeamSection({ content }: VulkTeamSectionProps) {
                       <LinkedinIcon className="w-5 h-5" />
                     </a>
                   </div>
+                  <p className="text-[#FF5733] font-semibold text-base mb-2">
+                    {member.role}
+                  </p>
                   <p className="text-[#4a4a4a] text-sm leading-relaxed">
                     {member.bio}
                   </p>

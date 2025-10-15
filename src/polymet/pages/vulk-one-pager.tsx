@@ -3,6 +3,7 @@ import { VulkHeroSection } from "@/polymet/components/vulk-hero-section";
 import { VulkProblemSection } from "@/polymet/components/vulk-problem-section";
 import { VulkSolutionSection } from "@/polymet/components/vulk-solution-section";
 import { VulkMarketSection } from "@/polymet/components/vulk-market-section";
+import { VulkGTMSection } from "@/polymet/components/vulk-gtm-section";
 import { VulkCompetitionSection } from "@/polymet/components/vulk-competition-section";
 import { VulkTeamSection } from "@/polymet/components/vulk-team-section";
 import { VulkRoadmapSection } from "@/polymet/components/vulk-roadmap-section";
@@ -22,6 +23,8 @@ export function VulkOnePager() {
       <VulkSolutionSection content={vulkContent.solution} />
 
       <VulkMarketSection content={vulkContent.market} />
+
+      <VulkGTMSection content={vulkContent.gtm} />
 
       <VulkCompetitionSection content={vulkContent.competition} />
 
