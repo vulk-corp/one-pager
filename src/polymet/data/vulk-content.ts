@@ -394,7 +394,7 @@ export const vulkContent: VulkContent = {
   },
 
   fundraising: {
-    title: "Join Our $400K Seed Round",
+    title: "Join Our $400K Pre-Seed Round",
     raising: "$400k",
     valuationCap: "$8M",
     useOfFunds:
