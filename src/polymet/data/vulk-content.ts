@@ -146,7 +146,7 @@ export const vulkContent: VulkContent = {
     title: "vulk.ai",
     websiteUrl: "https://www.vulk.ai",
     tagline: [
-      { text: "AI Career agent to ", isHighlight: false },
+      { text: "The AI Career agent to ", isHighlight: false },
       { text: "thrive", isHighlight: true },
       { text: " through the AI shift", isHighlight: false },
     ],
@@ -156,12 +156,10 @@ export const vulkContent: VulkContent = {
   problem: {
     title: "The Job Market Is Fundamentally Changing",
     description:
-      "AI + layoffs are making the white-collar job market more competitive than ever. Professionals don't know how to",
+      "Professionals face layoffs, AI disruption, and existential career doubt. The old playbook is dead. Surviving requires continuous transformation.",
     descriptionHighlights: [
-      { text: "AI + layoffs are making the white-collar job market more competitive than ever. Professionals don't know how to ", isHighlight: false },
-      { text: "stay relevant", isHighlight: true },
-      { text: " or ", isHighlight: false },
-      { text: "grow their value", isHighlight: true },
+      { text: "Professionals face layoffs, AI disruption, and existential career doubt. The old playbook is dead. ", isHighlight: false },
+      { text: "Surviving requires continuous transformation", isHighlight: true },
       { text: ".", isHighlight: false },
     ],
     stats: [
@@ -196,25 +194,25 @@ export const vulkContent: VulkContent = {
         icon: "sparkles",
         title: "Hyper personalized",
         description:
-          "Every week, analyzes your situation, goals, recent activity, market conditions, and availability",
+          "Understand your situation and discuss your career goals, then analyzes your current profile and the market to create a weekly action plan tailored to you",
+      },
+      {
+        icon: "zap",
+        title: "Takes Real Actions",
+        description:
+          "Updates your brand profile, builds custom upskilling roadmaps, sends connection requests and DMs, directly integrated with your tools",
       },
       {
         icon: "trending-up",
-        title: "Agent-Executed Actions",
+        title: "Learns From Every Signal",
         description:
-          "Generates 3-5 prioritized actions. 90% completed by Vulk, 10% by you. Templates, drafts, and execution delivered in command center",
+          "Monitors opens, replies, and engagement across LinkedIn and email to optimize what's working for your career growth",
       },
       {
         icon: "bell",
-        title: "Adaptive Strategy",
+        title: "Always Watching",
         description:
-          "Learns from results, doubles down on what works, pivots when strategies aren't converting",
-      },
-      {
-        icon: "trending-up",
-        title: "Expanding Career OS",
-        description:
-          "Continuously building tools that empower Vulk to do more. Delivering a true career concierge experience over time",
+          "Continuously scans opportunities, relationship signals, and market shifts to keep you one step ahead",
       },
     ],
     images: [
